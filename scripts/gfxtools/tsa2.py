@@ -277,6 +277,13 @@ def handle_number_of_tiles(num_tiles: int, unique_tiles : TileCollection):
 def handle_blank_tile_index(index : int, unique_tiles : TileCollection):
     unique_tiles.insert(0, CheckTile(np.zeros((8,8), dtype=int)))
     unique_tiles.move_tile(1, index)
+def handle_flip_tiles(indexes : list[int],unique_tiles : TileCollection, tsa: TSA):
+    for i in indexes:
+        u_key = unique_tiles.get_key(i)
+        unique_tiles[u_key] = CheckTile(unique_tiles[u_key].y)
+        for t in tsa.tiles:
+            if t.tile_id == u_key:
+                t.y_flip = not t.y_flip
 def handle_flip_indexes(indexes : list[int], tsa: TSA):
     for i in indexes:
         tsa.tiles[i].y_flip = True
@@ -306,6 +313,8 @@ def handle_args(args : dict, unique_tiles :TileCollection, tsa):
         handle_number_of_tiles(args["num_tiles"], unique_tiles)
     if args["blank_tile_index"] != 0:
         handle_blank_tile_index(args["blank_tile_index"], unique_tiles)
+    if len(args["flip_tile_y_indexes"]) > 0: # this should probably go into the main loop to avoid looping unncessasarily. But it effects like one image so is it really worth doing that?
+        handle_flip_tiles(args["flip_tile_y_indexes"], unique_tiles, tsa)
     if len(args["flip_y_indexes"]) > 0:
         handle_flip_indexes(args["flip_y_indexes"], tsa)
     if len(args["insert_indexes"]) > 0:

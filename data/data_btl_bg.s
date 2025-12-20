@@ -271,7 +271,7 @@ btl_bg_13_map: @876d4ec
 	.align 2, 0
 	.global btl_bg_14_tiles
 btl_bg_14_tiles: @876d784
-	.incbin "graphics/btl_bg/btl_bg_14.4bpp.lz"
+	.incbin "graphics/btl_bg/btl_bg_14.feimg3.bin.lz"
 
 	.align 2, 0
 	.global btl_bg_14_palette
@@ -281,7 +281,7 @@ btl_bg_14_palette: @876e2a0
 	.align 2, 0
 	.global btl_bg_14_map
 btl_bg_14_map: @876e350
-	.incbin "graphics/btl_bg/btl_bg_14.bin.lz"
+	.incbin "graphics/btl_bg/btl_bg_14.fetsa3.bin.lz"
 
 	.align 2, 0
 	.global btl_bg_15_tiles
