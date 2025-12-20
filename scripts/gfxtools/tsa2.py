@@ -320,6 +320,9 @@ def handle_args(args : dict, unique_tiles :TileCollection, tsa):
     if len(args["insert_indexes"]) > 0:
         for old, new in args["insert_indexes"]:
             unique_tiles.move_tile(old, new)
+    if(len(args["set_indexes"]) > 0):
+        for tsa_index, new_tile_id in args["set_indexes"]:
+            tsa.tiles[tsa_index].tile_id = new_tile_id
     if args["pop_last_tile"]:
         del unique_tiles[unique_tiles.last_key()]
     if args["no_chunked"] != True:
