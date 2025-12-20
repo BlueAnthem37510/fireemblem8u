@@ -163,7 +163,7 @@ class TileCollection(UserDict):
     def last_key(self):
         return self.keys()[-1]
     def insert(self, index, tile):
-        self.shift_forwards_from(index-1)
+        self.shift_forwards_from(index)
         self[index] = tile
     def shift_forwards_from(self, from_int):
         keys = self.keys()
@@ -280,11 +280,28 @@ def handle_blank_tile_index(index : int, unique_tiles : TileCollection):
 def handle_flip_indexes(indexes : list[int], tsa: TSA):
     for i in indexes:
         tsa.tiles[i].y_flip = True
+def handle_copy_tiles(indexes : list[int],unique_tiles : TileCollection, tsa: TSA):
+    for old, new in indexes:
+        unique_tiles.shift_forwards_from(new)
+        unique_tiles[new] = CheckTile(unique_tiles[unique_tiles.get_key(old)].original)
+        key = unique_tiles.get_key(new)
+        skip_first = False
+        for t in tsa.tiles:
+            if t.tile_id == old:
+                if not skip_first:
+                    skip_first = True
+                    continue
+                t.tile_id = key
 def handle_args(args : dict, unique_tiles :TileCollection, tsa):
     if args["max_empty_index"]:
         max_empty_tile(unique_tiles, tsa)
     if args["padding"] != 0:
         handle_padding(args["padding"], unique_tiles)
+    if len(args["copy_tiles"]) > 0:
+        handle_copy_tiles(args["copy_tiles"], unique_tiles, tsa)
+    if len(args["insert_blank_tiles"]) > 0:
+        for index in args["insert_blank_tiles"]:
+            unique_tiles.insert(index, CheckTile(np.zeros((8,8), dtype=int)))
     if args["num_tiles"] != 0:
         handle_number_of_tiles(args["num_tiles"], unique_tiles)
     if args["blank_tile_index"] != 0:

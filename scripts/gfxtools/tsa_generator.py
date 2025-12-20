@@ -111,6 +111,8 @@ def extract_suffix_from_filename(file_name):
     if match:
         return int(match.group(2))
     return None
+def convert_index_args(x):
+    return list(map(lambda y: map(int, y.split(":")), x.split(",")))
 def get_args():
     usage = "Usage: [*.png] [*.feimg<x>.bin] [*.fetsa.bin]"
     parser = argparse.ArgumentParser(usage=usage)
@@ -124,7 +126,9 @@ def get_args():
     parser.add_argument("--flip_y_indexes", help="Flips the specified tile(s) y axis",default=[], type=lambda x :list(map(int, x.split(','))), action='store')
     parser.add_argument("--max_empty_index", help="Set empty tile to tile id 1023", action='store_true')
     parser.add_argument("--no_chunked", help="Don't chunk each row", action='store_true')
-    parser.add_argument("--insert_indexes", help= "Insert tiles(s) at position(s) <x>:<y>,<x>:<y>", default=[], type=lambda x:list(map(lambda y: map(int, y.split(":")), x.split(","))))
+    parser.add_argument("--copy_tiles", help="Copies the tile <x> to <y> position", default=[], type=convert_index_args, action='store')
+    parser.add_argument("--insert_blank_tiles", help="Insert blank tiles at <x> positions",default=[], type=lambda x :list(map(int, x.split(','))), action='store')
+    parser.add_argument("--insert_indexes", help= "Insert tiles(s) at position(s) <x>:<y>,<x>:<y>", default=[], type=convert_index_args, action='store')
     return parser
 def main():
     parser = get_args()
