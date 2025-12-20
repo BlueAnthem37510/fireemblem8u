@@ -164,6 +164,8 @@ graphics/btl_bg/btl_bg_57.feimg3.bin graphics/btl_bg/btl_bg_57.fetsa3.bin: graph
 graphics/btl_bg/btl_bg_58.feimg3.bin graphics/btl_bg/btl_bg_58.fetsa3.bin: graphics/btl_bg/btl_bg_58.png
 	$(FETSATOOL) $< graphics/btl_bg/btl_bg_58.feimg3.bin graphics/btl_bg/btl_bg_58.fetsa3.bin --insert_indexes=7:1,314:12,313:13 --padding=-1
 
+graphics/btl_bg/btl_bg_60.feimg3.bin graphics/btl_bg/btl_bg_60.fetsa3.bin: graphics/btl_bg/btl_bg_60.png
+	$(FETSATOOL) $< graphics/btl_bg/btl_bg_60.feimg3.bin graphics/btl_bg/btl_bg_60.fetsa3.bin --insert_indexes=1:317,313:1,315:7,316:11,316:8,11:12 --padding=-1
 #op anim
 graphics/op_anim/OpAnimWorldMap.feimg4.bin graphics/op_anim/OpAnimWorldMap.fetsa4.bin: graphics/op_anim/OpAnimWorldMap.png
 	$(FETSATOOL) $< graphics/op_anim/OpAnimWorldMap.feimg4.bin  graphics/op_anim/OpAnimWorldMap.fetsa4.bin --insert_indexes=0:511,22:0
