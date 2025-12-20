@@ -154,19 +154,19 @@ graphics/btl_bg/btl_bg_57.feimg3.bin graphics/btl_bg/btl_bg_57.fetsa3.bin: graph
 
 #op anim
 graphics/op_anim/OpAnimWorldMap.feimg4.bin graphics/op_anim/OpAnimWorldMap.fetsa4.bin: graphics/op_anim/OpAnimWorldMap.png
-	$(FETSATOOL) $< graphics/op_anim/OpAnimWorldMap.feimg4.bin  graphics/op_anim/OpAnimWorldMap.fetsa4.bin --insert_indexes=0:23,511:1
+	$(FETSATOOL) $< graphics/op_anim/OpAnimWorldMap.feimg4.bin  graphics/op_anim/OpAnimWorldMap.fetsa4.bin --insert_indexes=0:511,22:0
 
 graphics/op_anim/OpAnimWorldMapFog.feimg4.bin graphics/op_anim/OpAnimWorldMapFog.fetsa4.bin: graphics/op_anim/OpAnimWorldMapFog.png
 	$(FETSATOOL) $< graphics/op_anim/OpAnimWorldMapFog.feimg4.bin  graphics/op_anim/OpAnimWorldMapFog.fetsa4.bin --blank_tile_index=255
 
 graphics/op_anim/OpAnimGenericCharacterBG.feimg4.bin graphics/op_anim/OpAnimGenericCharacterBG.fetsa4.bin: graphics/op_anim/OpAnimGenericCharacterBG.png
-	$(FETSATOOL) $< graphics/op_anim/OpAnimGenericCharacterBG.feimg4.bin  graphics/op_anim/OpAnimGenericCharacterBG.fetsa4.bin --num_tiles=256 --insert_indexes=213:1 --padding=-1 --flip_y_indexes=16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,88,89,90,123,126,127,144,158,176,179,180,208,209,210,211,212,213,214,215,216,217,218,272,274,275,287,306,307,308,309,315,316,317,319,338,340,345,383,401,405,406,432,434,435,436,438,442,444,445,464,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,504,506,560,561,562,563,564,565,566,567,568,569,572,573,574,575,606,624,625,626,627,628,629,630,631,632,633,634,635,636,637,638,639
+	$(FETSATOOL) $< graphics/op_anim/OpAnimGenericCharacterBG.feimg4.bin  graphics/op_anim/OpAnimGenericCharacterBG.fetsa4.bin --num_tiles=256 --insert_indexes=1:213 --padding=-1 --flip_y_indexes=16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,88,89,90,123,126,127,144,158,176,179,180,208,209,210,211,212,213,214,215,216,217,218,272,274,275,287,306,307,308,309,315,316,317,319,338,340,345,383,401,405,406,432,434,435,436,438,442,444,445,464,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,504,506,560,561,562,563,564,565,566,567,568,569,572,573,574,575,606,624,625,626,627,628,629,630,631,632,633,634,635,636,637,638,639
 
 graphics/op_anim/OpAnimEphraim.feimg4.bin graphics/op_anim/OpAnimEphraim.fetsa4.bin: graphics/op_anim/OpAnimEphraim.png
-	$(FETSATOOL) $< graphics/op_anim/OpAnimEphraim.feimg4.bin  graphics/op_anim/OpAnimEphraim.fetsa4.bin --num_tiles=256 --insert_indexes=133:1
+	$(FETSATOOL) $< graphics/op_anim/OpAnimEphraim.feimg4.bin  graphics/op_anim/OpAnimEphraim.fetsa4.bin --num_tiles=256 --insert_indexes=1:133
 
 graphics/op_anim/OpAnimEphraimBlur1.feimg4.bin graphics/op_anim/OpAnimEphraimBlur1.fetsa4.bin: graphics/op_anim/OpAnimEphraimBlur1.png
-	$(FETSATOOL) $< graphics/op_anim/OpAnimEphraimBlur1.feimg4.bin  graphics/op_anim/OpAnimEphraimBlur1.fetsa4.bin --num_tiles=256 --insert_indexes=149:1
+	$(FETSATOOL) $< graphics/op_anim/OpAnimEphraimBlur1.feimg4.bin  graphics/op_anim/OpAnimEphraimBlur1.fetsa4.bin --num_tiles=256 --insert_indexes=1:149
 
 #graphics/op_anim/OpAnimEphraimBlur2.feimg4.bin graphics/op_anim/OpAnimEphraimBlur2.fetsa4.bin: graphics/op_anim/OpAnimEphraimBlur1.png
 #	$(FETSATOOL) $< graphics/op_anim/OpAnimEphraimBlur2.feimg4.bin  graphics/op_anim/OpAnimEphraimBlur2.fetsa4.bin --num_tiles=255 --insert_indexes=153:0
@@ -175,16 +175,16 @@ graphics/op_anim/OpAnimEphraimBlur1.feimg4.bin graphics/op_anim/OpAnimEphraimBlu
 #	$(FETSATOOL) $< graphics/op_anim/OpAnimEphraimBlur3.feimg4.bin  graphics/op_anim/OpAnimEphraimBlur3.fetsa4.bin --num_tiles=256 --insert_indexes=167:1
 
 graphics/op_anim/OpAnimEirika.feimg4.bin graphics/op_anim/OpAnimEirika.fetsa4.bin: graphics/op_anim/OpAnimEirika.png
-	$(FETSATOOL) $< graphics/op_anim/OpAnimEirika.feimg4.bin  graphics/op_anim/OpAnimEirika.fetsa4.bin --num_tiles=256 --insert_indexes=114:1
+	$(FETSATOOL) $< graphics/op_anim/OpAnimEirika.feimg4.bin  graphics/op_anim/OpAnimEirika.fetsa4.bin --num_tiles=256 --insert_indexes=1:114
 
 graphics/op_anim/OpAnimEirikaBlur1.feimg4.bin graphics/op_anim/OpAnimEirikaBlur1.fetsa4.bin: graphics/op_anim/OpAnimEirikaBlur1.png
-	$(FETSATOOL) $< graphics/op_anim/OpAnimEirikaBlur1.feimg4.bin  graphics/op_anim/OpAnimEirikaBlur1.fetsa4.bin --num_tiles=256 --insert_indexes=119:1
+	$(FETSATOOL) $< graphics/op_anim/OpAnimEirikaBlur1.feimg4.bin  graphics/op_anim/OpAnimEirikaBlur1.fetsa4.bin --num_tiles=256 --insert_indexes=1:119
 
 graphics/op_anim/OpAnimEirikaBlur2.feimg4.bin graphics/op_anim/OpAnimEirikaBlur2.fetsa4.bin: graphics/op_anim/OpAnimEirikaBlur2.png
-	$(FETSATOOL) $< graphics/op_anim/OpAnimEirikaBlur2.feimg4.bin  graphics/op_anim/OpAnimEirikaBlur2.fetsa4.bin --num_tiles=256 --insert_indexes=136:1
+	$(FETSATOOL) $< graphics/op_anim/OpAnimEirikaBlur2.feimg4.bin  graphics/op_anim/OpAnimEirikaBlur2.fetsa4.bin --num_tiles=256 --insert_indexes=1:136
 
 graphics/op_anim/OpAnimEirikaBlur3.feimg4.bin graphics/op_anim/OpAnimEirikaBlur3.fetsa4.bin: graphics/op_anim/OpAnimEirikaBlur3.png
-	$(FETSATOOL) $< graphics/op_anim/OpAnimEirikaBlur3.feimg4.bin  graphics/op_anim/OpAnimEirikaBlur3.fetsa4.bin --num_tiles=256 --insert_indexes=161:1
+	$(FETSATOOL) $< graphics/op_anim/OpAnimEirikaBlur3.feimg4.bin  graphics/op_anim/OpAnimEirikaBlur3.fetsa4.bin --num_tiles=256 --insert_indexes=1:161
 
 ## Statscreen
 
