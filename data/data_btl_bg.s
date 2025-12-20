@@ -576,7 +576,7 @@ btl_bg_59_map: @877f42c
 	.align 2, 0
 	.global btl_bg_55_tiles
 btl_bg_55_tiles: @877f7d4
-	.incbin "graphics/btl_bg/btl_bg_55.4bpp.lz"
+	.incbin "graphics/btl_bg/btl_bg_55.feimg3.bin.lz"
 
 	.align 2, 0
 	.global btl_bg_55_palette
@@ -586,7 +586,7 @@ btl_bg_55_palette: @8781d94
 	.align 2, 0
 	.global btl_bg_55_map
 btl_bg_55_map: @8781ea4
-	.incbin "graphics/btl_bg/btl_bg_55.bin.lz"
+	.incbin "graphics/btl_bg/btl_bg_55.fetsa3.bin.lz"
 
 	.align 2, 0
 	.global btl_bg_56_tiles

@@ -152,6 +152,9 @@ graphics/btl_bg/btl_bg_32.feimg3.bin graphics/btl_bg/btl_bg_32.fetsa3.bin: graph
 graphics/btl_bg/btl_bg_47.feimg3.bin graphics/btl_bg/btl_bg_47.fetsa3.bin: graphics/btl_bg/btl_bg_47.png
 	$(FETSATOOL) $< graphics/btl_bg/btl_bg_47.feimg3.bin graphics/btl_bg/btl_bg_47.fetsa3.bin --flip_y_indexes=15,16,17,18,19,20,21,22,23,24,25,26,27,28,29
 
+graphics/btl_bg/btl_bg_55.feimg3.bin graphics/btl_bg/btl_bg_55.fetsa3.bin: graphics/btl_bg/btl_bg_55.png
+	$(FETSATOOL) $< graphics/btl_bg/btl_bg_55.feimg3.bin graphics/btl_bg/btl_bg_55.fetsa3.bin --insert_indexes=1:31,1:146,1:115,1:54,1:359,357:84,358:177,358:208 --padding=-1
+
 graphics/btl_bg/btl_bg_56.feimg3.bin graphics/btl_bg/btl_bg_56.fetsa3.bin: graphics/btl_bg/btl_bg_56.png
 	$(FETSATOOL) $< graphics/btl_bg/btl_bg_56.feimg3.bin graphics/btl_bg/btl_bg_56.fetsa3.bin --blank_tile_index=298 --pop_last_tile
 
