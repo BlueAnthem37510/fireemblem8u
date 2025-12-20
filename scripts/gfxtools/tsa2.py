@@ -176,11 +176,6 @@ class TileCollection(UserDict):
         for k in keys:
             if k.value > to_int or k.value < from_int: continue
             k.value = k.value + 1
-    def shift_backwards_to(self, to_int):
-        keys = self.keys()
-        for k in keys:
-            if k.value > to_int: continue
-            k.value = k.value - 1
     def shift_backwards_from(self, from_int):
         keys = self.data.keys()
         for k in keys:
@@ -258,7 +253,7 @@ def max_empty_tile(unique_tiles : TileCollection,  tsa : TSA):
         if tile.tile_id == 0:
             if tile.pal_id != 0:
                 #use empty end tile if the empty tile is not the first tile
-                tsa.tiles[i].tile_id  = unique_tiles.last_key() #unsure if that is correct??
+                tsa.tiles[i].tile_id  = unique_tiles.last_key()
                 continue
             tsa.tiles[i].tile_id = 1023
             continue
@@ -288,8 +283,6 @@ def handle_flip_indexes(indexes : list[int], tsa: TSA):
 def handle_args(args : dict, unique_tiles :TileCollection, tsa):
     if args["max_empty_index"]:
         max_empty_tile(unique_tiles, tsa)
-    if args["starting_index"] != 0:
-        unique_tiles.move_tile(0,args["starting_index"])
     if args["padding"] != 0:
         handle_padding(args["padding"], unique_tiles)
     if args["num_tiles"] != 0:
@@ -310,7 +303,6 @@ def main(args, tiles , ntile_x, ntile_y ):
     tsa, out_tiles = create_TSA(tiles, ntile_x, ntile_y)
     handle_args(args,out_tiles, tsa )
     return tsa, out_tiles.values()
-
 
 if __name__ == '__main__':
     from tsa_generator import convert_to_4bpp, extract_tiles, get_args
