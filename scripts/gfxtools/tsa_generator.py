@@ -129,6 +129,7 @@ def get_args():
     parser.add_argument("--no_chunked", help="Don't chunk each row", action='store_true')
     parser.add_argument("--copy_tiles", help="Copies the tile <x> to <y> position", default=[], type=convert_index_args, action='store')
     parser.add_argument("--insert_blank_tiles", help="Insert blank tiles at <x> positions",default=[], type=lambda x :list(map(int, x.split(','))), action='store')
+    parser.add_argument("--insert_unused_tiles", help="Insert tiles from *.png.unused at <x> positions",default=[], type=lambda x :list(map(int, x.split(','))), action='store')
     parser.add_argument("--insert_indexes", help= "Insert tiles(s) at position(s) <x>:<y>,<x>:<y>", default=[], type=convert_index_args, action='store')
     parser.add_argument("--set_indexes", help= "When all else fails, set tsa tile id at tile index <x> to  tile id <y>", default=[], type=convert_index_args, action='store')
     return parser

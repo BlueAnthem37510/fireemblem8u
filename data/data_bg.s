@@ -228,12 +228,12 @@ bg_Gate_palette:
 	.align 2, 0
 	.global bg_Garden_tiles
 bg_Garden_tiles:
-	.incbin "graphics/bg/bg_Garden.4bpp.lz"
+	.incbin "graphics/bg/bg_Garden.feimg2.bin.lz"
 
 	.align 2, 0
 	.global bg_Garden_map
 bg_Garden_map:
-	.incbin "graphics/bg/bg_Garden.bin"
+	.incbin "graphics/bg/bg_Garden.fetsa2.bin"
 
 	.align 2, 0
 	.global bg_Garden_palette
@@ -428,12 +428,12 @@ bg_Town_palette:
 	.align 2, 0
 	.global bg_Castle_Back_tiles
 bg_Castle_Back_tiles:
-	.incbin "graphics/bg/bg_Castle_Back.4bpp.lz"
+	.incbin "graphics/bg/bg_Castle_Back.feimg2.bin.lz"
 
 	.align 2, 0
 	.global bg_Castle_Back_map
 bg_Castle_Back_map:
-	.incbin "graphics/bg/bg_Castle_Back.bin"
+	.incbin "graphics/bg/bg_Castle_Back.fetsa2.bin"
 
 	.align 2, 0
 	.global bg_Castle_Back_palette

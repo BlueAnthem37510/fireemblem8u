@@ -125,6 +125,12 @@ graphics/bg/bg_Renais_Chamber.feimg2.bin graphics/bg/bg_Renais_Chamber.fetsa2.bi
 graphics/bg/bg_Stream.feimg2.bin graphics/bg/bg_Stream.fetsa2.bin: graphics/bg/bg_Stream.png
 	$(FETSATOOL) $< graphics/bg/bg_Stream.feimg2.bin graphics/bg/bg_Stream.fetsa2.bin --insert_indexes=1:481 --padding -1
 
+graphics/bg/bg_Castle_Back.feimg2.bin graphics/bg/bg_Castle_Back.fetsa2.bin: graphics/bg/bg_Castle_Back.png
+	$(FETSATOOL) $< graphics/bg/bg_Castle_Back.feimg2.bin graphics/bg/bg_Castle_Back.fetsa2.bin --insert_indexes=30:28,31:29,62:58,63:59,94:87,95:88,126:117,127:118,158:147,159:148,190:175,191:176,222:202,223:203,254:226,255:227,286:253,287:254,318:277,319:278,350:298,351:299,382:321,383:322,414:345,415:346
+
+graphics/bg/bg_Garden.feimg2.bin graphics/bg/bg_Garden.fetsa2.bin: graphics/bg/bg_Garden.png
+	$(FETSATOOL) $< graphics/bg/bg_Garden.feimg2.bin graphics/bg/bg_Garden.fetsa2.bin --insert_unused_tiles=7,8,30,31,84 --insert_indexes=28:7,29:8,97:30,41:20,0:24,20:19
+
 #Opening subtitles
 
 graphics/op_subtitle/OpSubtitle_05.feimg2.bin graphics/op_subtitle/OpSubtitle_05.fetsa2.bin:  graphics/op_subtitle/OpSubtitle_05.png

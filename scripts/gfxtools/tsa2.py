@@ -299,6 +299,15 @@ def handle_copy_tiles(indexes : list[int],unique_tiles : TileCollection, tsa: TS
                     skip_first = True
                     continue
                 t.tile_id = key
+def handle_insert_unused_tiles(args : dict, unique_tiles :TileCollection):
+    from tsa_generator import extract_tiles
+    unused = args["png_file"].replace(".png", ".unused.png")
+    im = Image.open(unused)
+    tiles = extract_tiles(im, 1, im.height//8).flatten()
+    unused_tile_indexes = args["insert_unused_tiles"]
+    unused_tile_indexes.sort()
+    for i in range(len(tiles)):
+        unique_tiles.insert(unused_tile_indexes[i], CheckTile(tiles[i]))
 def handle_args(args : dict, unique_tiles :TileCollection, tsa):
     if args["max_empty_index"]:
         max_empty_tile(unique_tiles, tsa)
@@ -309,6 +318,8 @@ def handle_args(args : dict, unique_tiles :TileCollection, tsa):
     if len(args["insert_blank_tiles"]) > 0:
         for index in args["insert_blank_tiles"]:
             unique_tiles.insert(index, CheckTile(np.zeros((8,8), dtype=int)))
+    if len(args["insert_unused_tiles"]) > 0:
+        handle_insert_unused_tiles(args, unique_tiles)
     if args["num_tiles"] != 0:
         handle_number_of_tiles(args["num_tiles"], unique_tiles)
     if args["blank_tile_index"] != 0:
