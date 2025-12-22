@@ -68,12 +68,12 @@ bg_Village_Sunset_palette:
 	.align 2, 0
 	.global bg_Serafew_Village_tiles
 bg_Serafew_Village_tiles:
-	.incbin "graphics/bg/bg_Serafew_Village.4bpp.lz"
+	.incbin "graphics/bg/bg_Serafew_Village.feimg2.bin.lz"
 
 	.align 2, 0
 	.global bg_Serafew_Village_map
 bg_Serafew_Village_map:
-	.incbin "graphics/bg/bg_Serafew_Village.bin"
+	.incbin "graphics/bg/bg_Serafew_Village.fetsa2.bin"
 
 	.align 2, 0
 	.global bg_Serafew_Village_palette
@@ -268,12 +268,12 @@ bg_Manse_Flashback_palette:
 	.align 2, 0
 	.global bg_Cell_tiles
 bg_Cell_tiles:
-	.incbin "graphics/bg/bg_Cell.4bpp.lz"
+	.incbin "graphics/bg/bg_Cell.feimg2.bin.lz"
 
 	.align 2, 0
 	.global bg_Cell_map
 bg_Cell_map:
-	.incbin "graphics/bg/bg_Cell.bin"
+	.incbin "graphics/bg/bg_Cell.fetsa2.bin"
 
 	.align 2, 0
 	.global bg_Cell_palette
@@ -308,12 +308,12 @@ bg_Plain_1_Fog_palette:
 	.align 2, 0
 	.global bg_Grass_Plains_2_tiles
 bg_Grass_Plains_2_tiles:
-	.incbin "graphics/bg/bg_Grass_Plains_2.4bpp.lz"
+	.incbin "graphics/bg/bg_Grass_Plains_2.feimg2.bin.lz"
 
 	.align 2, 0
 	.global bg_Grass_Plains_2_map
 bg_Grass_Plains_2_map:
-	.incbin "graphics/bg/bg_Grass_Plains_2.bin"
+	.incbin "graphics/bg/bg_Grass_Plains_2.fetsa2.bin"
 
 	.align 2, 0
 	.global bg_Grass_Plains_2_palette

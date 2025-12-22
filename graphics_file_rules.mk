@@ -131,6 +131,14 @@ graphics/bg/bg_Castle_Back.feimg2.bin graphics/bg/bg_Castle_Back.fetsa2.bin: gra
 graphics/bg/bg_Garden.feimg2.bin graphics/bg/bg_Garden.fetsa2.bin: graphics/bg/bg_Garden.png
 	$(FETSATOOL) $< graphics/bg/bg_Garden.feimg2.bin graphics/bg/bg_Garden.fetsa2.bin --insert_unused_tiles=7,8,30,31,84 --insert_indexes=28:7,29:8,97:30,41:20,0:24,20:19
 
+graphics/bg/bg_Cell.feimg2.bin graphics/bg/bg_Cell.fetsa2.bin: graphics/bg/bg_Cell.png
+	$(FETSATOOL) $< graphics/bg/bg_Cell.feimg2.bin graphics/bg/bg_Cell.fetsa2.bin --insert_unused_tiles=16,34,48,83,104,120,141,163,185,203,221,239,255,269,282
+
+graphics/bg/bg_Grass_Plains_2.feimg2.bin graphics/bg/bg_Grass_Plains_2.fetsa2.bin: graphics/bg/bg_Grass_Plains_2.png
+	$(FETSATOOL) $< graphics/bg/bg_Grass_Plains_2.feimg2.bin graphics/bg/bg_Grass_Plains_2.fetsa2.bin --insert_unused_tiles=179 --insert_indexes=180:208
+
+graphics/bg/bg_Serafew_Village.feimg2.bin graphics/bg/bg_Serafew_Village.fetsa2.bin: graphics/bg/bg_Serafew_Village.png
+	$(FETSATOOL) $< graphics/bg/bg_Serafew_Village.feimg2.bin graphics/bg/bg_Serafew_Village.fetsa2.bin --insert_unused_tiles=0
 #Opening subtitles
 
 graphics/op_subtitle/OpSubtitle_05.feimg2.bin graphics/op_subtitle/OpSubtitle_05.fetsa2.bin:  graphics/op_subtitle/OpSubtitle_05.png
