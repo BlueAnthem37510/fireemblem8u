@@ -139,6 +139,10 @@ graphics/bg/bg_Grass_Plains_2.feimg2.bin graphics/bg/bg_Grass_Plains_2.fetsa2.bi
 
 graphics/bg/bg_Serafew_Village.feimg2.bin graphics/bg/bg_Serafew_Village.fetsa2.bin: graphics/bg/bg_Serafew_Village.png
 	$(FETSATOOL) $< graphics/bg/bg_Serafew_Village.feimg2.bin graphics/bg/bg_Serafew_Village.fetsa2.bin --insert_unused_tiles=0
+
+graphics/bg/bg_Volcano.feimg2.bin graphics/bg/bg_Volcano.fetsa2.bin: graphics/bg/bg_Volcano.png
+	$(FETSATOOL) $< graphics/bg/bg_Volcano.feimg2.bin graphics/bg/bg_Volcano.fetsa2.bin --insert_unused_tiles=52,561,562,563,564,565,566,567,568,569,570,571,572,573,574,575,576,577,578,579,580,581,582,583,584,585,586,587,588,589,590 --flip_tile_y_indexes=6,7 --flip_tile_x_indexes=6,7 --insert_indexes=18:26,17:25,16:23,15:22,14:21,11:18,10:17,9:16,8:15,8:14,8:10,6:8,6:7,5:6
+
 #Opening subtitles
 
 graphics/op_subtitle/OpSubtitle_05.feimg2.bin graphics/op_subtitle/OpSubtitle_05.fetsa2.bin:  graphics/op_subtitle/OpSubtitle_05.png

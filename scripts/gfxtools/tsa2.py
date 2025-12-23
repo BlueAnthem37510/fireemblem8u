@@ -277,13 +277,18 @@ def handle_number_of_tiles(num_tiles: int, unique_tiles : TileCollection):
 def handle_blank_tile_index(index : int, unique_tiles : TileCollection):
     unique_tiles.insert(0, CheckTile(np.zeros((8,8), dtype=int)))
     unique_tiles.move_tile(1, index)
-def handle_flip_tiles(indexes : list[int],unique_tiles : TileCollection, tsa: TSA):
+def handle_flip_tiles(indexes : list[int],unique_tiles : TileCollection, tsa: TSA, y_flip:bool):
     for i in indexes:
         u_key = unique_tiles.get_key(i)
-        unique_tiles[u_key] = CheckTile(unique_tiles[u_key].y)
-        for t in tsa.tiles:
+        unique_tiles[u_key] = CheckTile(unique_tiles[u_key].y if y_flip else unique_tiles[u_key].x)
+        for i in range(len(tsa.tiles)):
+            t = tsa.tiles[i]
             if t.tile_id == u_key:
-                t.y_flip = not t.y_flip
+                if y_flip:
+                    tsa.tiles[i].y_flip = not t.y_flip
+                else: #x_flip
+                    tsa.tiles[i].x_flip = not t.x_flip
+                test= 1
 def handle_flip_indexes(indexes : list[int], tsa: TSA):
     for i in indexes:
         tsa.tiles[i].y_flip = True
@@ -324,8 +329,10 @@ def handle_args(args : dict, unique_tiles :TileCollection, tsa):
         handle_number_of_tiles(args["num_tiles"], unique_tiles)
     if args["blank_tile_index"] != 0:
         handle_blank_tile_index(args["blank_tile_index"], unique_tiles)
-    if len(args["flip_tile_y_indexes"]) > 0: # this should probably go into the main loop to avoid looping unncessasarily. But it effects like one image so is it really worth doing that?
-        handle_flip_tiles(args["flip_tile_y_indexes"], unique_tiles, tsa)
+    if len(args["flip_tile_y_indexes"]) > 0:
+        handle_flip_tiles(args["flip_tile_y_indexes"], unique_tiles, tsa, y_flip=True)
+    if len(args["flip_tile_x_indexes"]) > 0:
+        handle_flip_tiles(args["flip_tile_x_indexes"], unique_tiles, tsa, y_flip=False)
     if len(args["flip_y_indexes"]) > 0:
         handle_flip_indexes(args["flip_y_indexes"], tsa)
     if len(args["insert_indexes"]) > 0:

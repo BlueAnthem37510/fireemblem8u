@@ -124,6 +124,7 @@ def get_args():
     parser.add_argument("--blank_tile_index", help="Sets any tile id 0 to tile <x>",default=0, type=int, action='store')
     parser.add_argument("--pop_last_tile", help="Remove the end tile.", action='store_true')
     parser.add_argument("--flip_tile_y_indexes", help="Flips the specified image tile on the y axis",default=[], type=lambda x :list(map(int, x.split(','))), action='store')
+    parser.add_argument("--flip_tile_x_indexes", help="Flips the specified image tile on the y axis",default=[], type=lambda x :list(map(int, x.split(','))), action='store')
     parser.add_argument("--flip_y_indexes", help="Flips the map tile(s) y axis",default=[], type=lambda x :list(map(int, x.split(','))), action='store')
     parser.add_argument("--max_empty_index", help="Set empty tile to tile id 1023", action='store_true')
     parser.add_argument("--no_chunked", help="Don't chunk each row", action='store_true')

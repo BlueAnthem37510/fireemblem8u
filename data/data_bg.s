@@ -603,12 +603,12 @@ bg_Darkling_Woods_palette:
 	.align 2, 0
 	.global bg_Volcano_tiles
 bg_Volcano_tiles:
-	.incbin "graphics/bg/bg_Volcano.4bpp.lz"
+	.incbin "graphics/bg/bg_Volcano.feimg2.bin.lz"
 
 	.align 2, 0
 	.global bg_Volcano_map
 bg_Volcano_map:
-	.incbin "graphics/bg/bg_Volcano.bin"
+	.incbin "graphics/bg/bg_Volcano.fetsa2.bin"
 
 	.align 2, 0
 	.global bg_Volcano_palette
