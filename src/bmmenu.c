@@ -469,7 +469,7 @@ u8 StartUnitBallistaSelect(struct MenuProc* menu, struct MenuItemProc* menuItem)
 }
 
 u8 StartUnitWeaponSelect(struct MenuProc* menu, struct MenuItemProc* menuItem) {
-    ProcPtr proc = StartOrphanMenu(&gUnknownMenuDef);
+    ProcPtr proc = StartOrphanMenu(&gWeaponSelectMenuDef);
 
     if (gActiveUnit->pClassData->number != CLASS_PHANTOM) {
         StartFace(0, GetUnitPortraitId(gActiveUnit), 0xB0, 0xC, 2);
@@ -505,7 +505,7 @@ int HideMoveRangeGraphicsWrapper(struct MenuProc* menu, struct MenuItemProc* men
     return 0;
 }
 
-u8 UnknownMenu_IsAvailable(const struct MenuItemDef* def, int number) {
+u8 WeaponSelectMenu_IsAvailable(const struct MenuItemDef* def, int number) {
     int item = gActiveUnit->items[number];
 
     if (!(GetItemAttributes(item) & IA_WEAPON)) {
@@ -525,7 +525,7 @@ u8 UnknownMenu_IsAvailable(const struct MenuItemDef* def, int number) {
     return MENU_ENABLED;
 }
 
-u8 UnknownMenu_Selected(struct MenuProc* menu, struct MenuItemProc* menuItem) {
+u8 WeaponSelectMenu_Selected(struct MenuProc* menu, struct MenuItemProc* menuItem) {
 
     EquipUnitItemSlot(gActiveUnit, menuItem->itemNumber);
     gActionData.itemSlotIndex = 0;
@@ -541,7 +541,7 @@ u8 UnknownMenu_Selected(struct MenuProc* menu, struct MenuItemProc* menuItem) {
     return MENU_ACT_SKIPCURSOR | MENU_ACT_END | MENU_ACT_SND6A | MENU_ACT_ENDFACE;
 }
 
-int UnknownMenu_Draw(struct MenuProc* menu, struct MenuItemProc* menuItem) {
+int WeaponSelectMenu_Draw(struct MenuProc* menu, struct MenuItemProc* menuItem) {
     int item = gActiveUnit->items[menuItem->itemNumber];
 
     s8 isUsable = CanUnitUseWeapon(gActiveUnit, item);
@@ -556,7 +556,7 @@ int UnknownMenu_Draw(struct MenuProc* menu, struct MenuItemProc* menuItem) {
     return 0;
 }
 
-int UnknownMenu_SwitchIn(struct MenuProc* menu, struct MenuItemProc* menuItem) {
+int WeaponSelectMenu_SwitchIn(struct MenuProc* menu, struct MenuItemProc* menuItem) {
 
     int reach;
 
@@ -735,10 +735,10 @@ u8 VisitCommandUsability(const struct MenuItemDef* def, int number) {
     switch (gBmMapTerrain[gActiveUnit->yPos][gActiveUnit->xPos]) {
         default:
             return MENU_NOTSHOWN;
-        case TERRIAN_HOUSE:
+        case TERRAIN_HOUSE:
         case TERRAIN_INN:
-        case TERRAIN_RUINS_37:
-        case TERRAIN_VILLAGE_03:
+        case TERRAIN_RUINS_VILLAGE:
+        case TERRAIN_VILLAGE_REGULAR:
             break;
     }
 
@@ -785,7 +785,7 @@ u8 sub_80230F0(const struct MenuItemDef* def) {
             break;
         }
 
-        if (GetItemType(item) != ITYPE_12) {
+        if (GetItemType(item) != ITYPE_DANCE) {
             continue;
         }
 
@@ -841,7 +841,7 @@ u8 PlayCommandEffect(struct MenuProc* menu, struct MenuItemProc* menuItem) {
             break;
         }
 
-        if (GetItemType(item) != ITYPE_12) {
+        if (GetItemType(item) != ITYPE_DANCE) {
             continue;
         }
 
@@ -923,11 +923,11 @@ int ItemSelectMenu_TextDraw(struct MenuProc* menu, struct MenuItemProc* menuItem
     int item = gActiveUnit->items[menuItem->itemNumber];
 
     if (GetItemAttributes(item) & IA_WEAPON) {
-        UnknownMenu_Draw(menu, menuItem);
+        WeaponSelectMenu_Draw(menu, menuItem);
         return 0;
     }
 
-    if (GetItemType(item) == ITYPE_12) {
+    if (GetItemType(item) == ITYPE_DANCE) {
         isUsable = 0;
     } else {
         isUsable = CanUnitUseItem(gActiveUnit, item);
@@ -953,7 +953,7 @@ u8 ItemSelectMenu_Usability(const struct MenuItemDef* def, int number) {
     }
 
     if (GetItemAttributes(item) & IA_WEAPON) {
-        UnknownMenu_IsAvailable(def, number);
+        WeaponSelectMenu_IsAvailable(def, number);
     }
 
     return CanUnitUseItem(gActiveUnit, item)
@@ -1085,7 +1085,7 @@ u8 ItemSubMenu_IsUseAvailable(const struct MenuItemDef* def, int number) {
         return MENU_NOTSHOWN;
     }
 
-    if (GetItemType(item) == ITYPE_12) {
+    if (GetItemType(item) == ITYPE_DANCE) {
         return MENU_NOTSHOWN;
     }
 
@@ -1503,7 +1503,7 @@ u8 ChestCommandUsability(const struct MenuItemDef* def, int number) {
         return MENU_NOTSHOWN;
     }
 
-    if (GetUnitKeyItemSlotForTerrain(gActiveUnit, TERRAIN_CHEST_21) < 0) {
+    if (GetUnitKeyItemSlotForTerrain(gActiveUnit, TERRAIN_CHEST_FULL) < 0) {
         return MENU_NOTSHOWN;
     }
 
@@ -1514,7 +1514,7 @@ u8 ChestCommandUsability(const struct MenuItemDef* def, int number) {
 u8 ChestCommandEffect(struct MenuProc* menu, struct MenuItemProc* menuItem) {
 
     gActionData.unitActionType = UNIT_ACTION_CHEST;
-    gActionData.itemSlotIndex = GetUnitKeyItemSlotForTerrain(gActiveUnit, TERRAIN_CHEST_21);
+    gActionData.itemSlotIndex = GetUnitKeyItemSlotForTerrain(gActiveUnit, TERRAIN_CHEST_FULL);
 
     return MENU_ACT_SKIPCURSOR | MENU_ACT_END | MENU_ACT_SND6A | MENU_ACT_CLEAR;
 }
@@ -1728,7 +1728,7 @@ u8 ArenaCommandUsability(const struct MenuItemDef* def, int number) {
         return MENU_NOTSHOWN;
     }
 
-    if (gBmMapTerrain[gActiveUnit->yPos][gActiveUnit->xPos] != TERRAIN_ARENA_08) {
+    if (gBmMapTerrain[gActiveUnit->yPos][gActiveUnit->xPos] != TERRAIN_ARENA_REGULAR) {
         return MENU_NOTSHOWN;
     }
 
@@ -2333,7 +2333,7 @@ u8 ItemMenu_Select1stCommand(struct MenuProc* menu, struct MenuItemProc* menuIte
 u8 ItemMenu_AreOtherCommandsAvailable(const struct MenuItemDef* def, int number) {
     int item = gActiveUnit->items[number - 1];
 
-    if (GetItemType(item) != ITYPE_12) {
+    if (GetItemType(item) != ITYPE_DANCE) {
         return MENU_NOTSHOWN;
     }
 
